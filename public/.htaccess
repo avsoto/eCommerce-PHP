@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+
+    # Desactiva MultiViews para evitar conflictos
+    Options -Multiviews
+
+    # Activa mod_rewrite
+    RewriteEngine on
+
+    # Define la base del proyecto
+    RewriteBase /eCommerce-PHP/public
+
+    # Si el archivo o directorio no existe, redirige al index.php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+</IfModule>

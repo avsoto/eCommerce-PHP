@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    # Enable mod_rewrite if enabled    
+    RewriteEngine on
+
+    # Redirect the root URL (/) to the public/ folder
+    RewriteRule ^$ public/ [L]
+    
+    # Redirect all requests to public/, maintaining the URL structure
+    RewriteRule (.*) public/$1 [L]
+</IfModule>
